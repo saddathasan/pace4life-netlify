@@ -1,0 +1,17 @@
+backend:
+  name: github
+  repo: kaziridwan/nextlifty-netlify-starter
+#   base_url: https://poc-20210302-045615.vercel.app/
+#   auth_endpoint: api/auth
+  branch: main
+public_folder: "/assets/uploads" 
+media_folder: "public/assets/uploads"
+media_library:
+  name: uploadcare
+collections:
+  - name: posts
+    label: "posts"
+    folder: "_cmscontent/posts"
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
