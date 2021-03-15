@@ -1,25 +1,8 @@
-import Link from "next/link";
 import matter from "gray-matter";
 
 import { promises as fsPromises } from "fs";
 
-import {
-  Container,
-  Heading,
-  Box,
-  Flex,
-  Grid,
-  Text,
-  Image,
-  Stack,
-  VStack,
-  HStack,
-  FormControl,
-  FormLabel,
-  Input,
-  Button,
-  Link as Anchor,
-} from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
 import Head from "next/head";
 import MarkdownContent from "@components/MarkdownContent";
 
@@ -31,7 +14,7 @@ export default function Blog({ markdownBody, frontmatter }) {
         <title>{frontmatter.title}</title>
       </Head>
 
-      <Container centerContent maxW="6xl" mt="8" mb="12">
+      <Container maxW="6xl" mt="8" mb="12">
         <div>
           {/* <ReactMarkdown source={markdownBody} /> */}
           <MarkdownContent>{markdownBody}</MarkdownContent>

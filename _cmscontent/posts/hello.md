@@ -1,3 +1,6 @@
 ---
-title: "hello "
+title: "hello"
+slug: "hello"
 ---
+
+## Hello World
