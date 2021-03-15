@@ -11,12 +11,8 @@ export const MarkdownContentWrapper = styled.div`
     line-height: 2;
     color: #423d58;
     font-family: inherit;
-    font-size: 14px;
+    font-size: inherit;
     word-wrap: break-word;
-
-    @media (min-width: 1200px) {
-      font-size: 16px;
-    }
   }
 
   .markdown-body .octicon {
