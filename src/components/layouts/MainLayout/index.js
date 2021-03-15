@@ -59,6 +59,9 @@ function Nav() {
             <Link href="/research" passHref>
               <Anchor>research</Anchor>
             </Link>
+            <Link href="/faq" passHref>
+              <Anchor>faq</Anchor>
+            </Link>
 
             <Menu isLazy>
               <MenuButton>
