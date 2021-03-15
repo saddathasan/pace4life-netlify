@@ -68,13 +68,18 @@ export default function Blog({ postList }) {
 }
 
 export async function getStaticProps({ params }) {
-  const markdownFiles = await fsPromises.readdir("public/_cmscontent/posts"); // ["defensive.md","async.md"]
+  const markdownFiles = await fsPromises.readdir("_cmscontent/posts"); // ["defensive.md","async.md"]
 
   const postList = markdownFiles.map((filename) => {
     const filenameWithoutdotMd = filename.replace(/.md$/, "");
 
     // const content = await import(`../public/_cmscontent/posts/${slug}.md`);
-    const path = `${process.cwd()}/public/_cmscontent/posts/${filenameWithoutdotMd}.md`;
+    /**
+     *
+     * Use `process.cwd()` to point to the root folder
+     *
+     */
+    const path = `${process.cwd()}/_cmscontent/posts/${filenameWithoutdotMd}.md`;
     // const content = await import(`../public/_cmscontent/posts/${slug}.md`);
     const rawContent = readFileSync(path);
 

@@ -43,7 +43,7 @@ export default function Blog({ markdownBody, frontmatter }) {
 
 export async function getStaticProps({ params }) {
   const content = await import(
-    `../../public/_cmscontent/posts/${params.slug}.md`
+    `${process.cwd()}/_cmscontent/posts/${params.slug}.md`
   );
   // const config = await import(`../../siteconfig.json`);
   const data = matter(content.default);
@@ -60,7 +60,7 @@ export async function getStaticProps({ params }) {
 // Resource
 // https://getstarted.sh/bulletproof-next/creating-a-markdown-blog/2
 export async function getStaticPaths() {
-  const markdownFiles = await fsPromises.readdir("public/_cmscontent/posts"); // ["defensive.md","async.md"]
+  const markdownFiles = await fsPromises.readdir("_cmscontent/posts"); // ["defensive.md","async.md"]
 
   const paths = markdownFiles.map((filename) => {
     const slug = filename.replace(/.md$/, "");
