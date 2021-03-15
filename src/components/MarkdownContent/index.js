@@ -4,7 +4,9 @@ import { MarkdownContentWrapper } from "./styled";
 export default function MarkdownContent(props) {
   return (
     <MarkdownContentWrapper fontPreference={props.fontPreference}>
-      <Markdown className="markdown-body">{props.children}</Markdown>
+      <div className="markdown-body">
+        <Markdown>{props.children}</Markdown>
+      </div>
     </MarkdownContentWrapper>
   );
 }
