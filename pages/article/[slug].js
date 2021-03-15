@@ -42,9 +42,7 @@ export default function Blog({ markdownBody, frontmatter }) {
 }
 
 export async function getStaticProps({ params }) {
-  const content = await import(
-    `${process.cwd()}/_cmscontent/posts/${params.slug}.md`
-  );
+  const content = await import(`../../_cmscontent/posts/${params.slug}.md`);
   // const config = await import(`../../siteconfig.json`);
   const data = matter(content.default);
 
