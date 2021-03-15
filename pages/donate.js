@@ -1,20 +1,4 @@
-import {
-  Container,
-  Heading,
-  Box,
-  Flex,
-  Grid,
-  Text,
-  Image,
-  Stack,
-  VStack,
-  HStack,
-  FormControl,
-  FormLabel,
-  Input,
-  Button,
-  Link as Anchor,
-} from "@chakra-ui/react";
+import { Container, Heading } from "@chakra-ui/react";
 import Head from "next/head";
 
 export default function Donate() {

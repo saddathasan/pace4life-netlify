@@ -7,16 +7,8 @@ import {
   Container,
   Heading,
   Box,
-  Flex,
-  Grid,
   Text,
-  Image,
-  Stack,
   VStack,
-  HStack,
-  FormControl,
-  FormLabel,
-  Input,
   Button,
   Link as Anchor,
 } from "@chakra-ui/react";
@@ -40,6 +32,7 @@ export default function Blog({ postList }) {
           {postList.map(({ post }) => {
             return (
               <Box
+                key={post.id}
                 p="4"
                 borderRadius="md"
                 border="1px solid"
@@ -49,7 +42,7 @@ export default function Blog({ postList }) {
                   {post.title}
                 </Heading>
                 <Text color="blue.500" fontWeight="bold" fontSize="md" mb="4">
-                  {post.author.toUpperCase()}
+                  {post.author}
                 </Text>
 
                 <Text fontSize="xl" mb="6">
@@ -70,16 +63,19 @@ export default function Blog({ postList }) {
 export async function getStaticProps({ params }) {
   const markdownFiles = await fsPromises.readdir("_cmscontent/posts"); // ["defensive.md","async.md"]
 
+  console.log(`markdownFiles`, markdownFiles);
+
   const postList = markdownFiles.map((filename) => {
     const filenameWithoutdotMd = filename.replace(/.md$/, "");
 
-    // const content = await import(`../public/_cmscontent/posts/${slug}.md`);
     /**
      *
      * Use `process.cwd()` to point to the root folder
      *
      */
     const path = `${process.cwd()}/_cmscontent/posts/${filenameWithoutdotMd}.md`;
+
+    console.log(`path`, path);
     // const content = await import(`../public/_cmscontent/posts/${slug}.md`);
     const rawContent = readFileSync(path);
 
