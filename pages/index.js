@@ -1,210 +1,213 @@
-import Head from 'next/head'
+import {
+  Container,
+  Heading,
+  Box,
+  Flex,
+  Grid,
+  Text,
+  Image,
+  Stack,
+  VStack,
+  HStack,
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+  Link as Anchor,
+  ButtonGroup,
+  AspectRatio,
+} from "@chakra-ui/react";
+import Head from "next/head";
 
 export default function Home() {
   return (
-    <div className="container">
+    <>
       <Head>
-        <title>Create Next App</title>
+        <title>Pace4Life</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <Container maxW="6xl">
+        {/* Hero [start] */}
+        <Box bgColor="blackAlpha.600">
+          <Image src="https://scontent.fdac38-1.fna.fbcdn.net/v/t1.15752-9/154501614_846398872589856_3915714248888137523_n.png?_nc_cat=106&ccb=3&_nc_sid=ae9488&_nc_ohc=8cjbdUFAdvAAX9hrl3Q&_nc_ht=scontent.fdac38-1.fna&oh=9b4ec5619fae12a56eae422f1d7ff0a6&oe=605CC008" />
+        </Box>
+        {/* Hero [end] */}
 
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        {/* Learn More [start] */}
+        <Grid
+          pt="4"
+          pb="12"
+          px={["0", "0", "8"]}
+          templateColumns={["auto", "auto", "1fr 1fr"]}
+          columnGap="8"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
+          <Box alignSelf="center">
+            <Heading fontWeight="light" mb="4">
+              At pace4life, we help people to{" "}
+              <Heading as="span">donate pacemakers</Heading>
+            </Heading>
+            <Text fontSize="xl" mb="6">
+              Sed ut perspiciatis unde omnis iste natus error sit volup tatem
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae ab illo inventore veritatis et quasi architecto beatae vitae
+              dicta sunt.
+            </Text>
+            <ButtonGroup size="lg" spacing="4">
+              <Button colorScheme="blue">learn more</Button>
+              <Button colorScheme="gray">apply</Button>
+            </ButtonGroup>
+          </Box>
+          <Image
+            alignSelf="flex-start"
+            src="https://scontent.fdac38-1.fna.fbcdn.net/v/t1.15752-9/154413280_3996468680398557_1032265096712196446_n.png?_nc_cat=102&ccb=3&_nc_sid=ae9488&_nc_ohc=V7FLhJMmu-wAX8JNq8A&_nc_ht=scontent.fdac38-1.fna&oh=19c3cfb8fc944b142e869722b3ed23b4&oe=605CCE96"
+          />
+        </Grid>
+        {/* Learn More [end] */}
 
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
+        {/* As Featured in [start] */}
 
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
+        <Box as="header" px="8" py="8" bgColor="#768692">
+          <Heading fontWeight="semibold" size="lg" color="white">
+            As Featured in
+          </Heading>
+        </Box>
 
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
+        {/* As Featured in [start] */}
 
-        footer img {
-          margin-left: 0.5rem;
-        }
+        {/* Carousel [start] */}
+        <Grid
+          px="8"
+          py="9"
+          bgColor="#E8EDEE"
+          templateColumns="repeat(4,1fr)"
+          alignItems="center"
+          gap="4"
+        >
+          <Image src="/vectors/logo-bbc.svg" />
+          <Image src="/vectors/logo-bbc-radio.svg" />
+          <Image src="/vectors/logo-bbc-news.svg" />
+          <Image src="/vectors/logo-bbc-shiwali.svg" />
+        </Grid>
+        {/* Carousel [end] */}
 
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
+        {/* Video [start] */}
 
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
+        <Box px="8" py="4" bgColor="#768692" overflowX="hidden">
+          <Grid
+            py="4"
+            gridAutoColumns="32rem"
+            gridAutoFlow="column"
+            gap="8"
+            overflowX="scroll"
+          >
+            <AspectRatio maxW="lg" ratio={2 / 1}>
+              <iframe
+                src="https://www.youtube.com/embed/Bgu9xp3sfYk"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              />
+            </AspectRatio>
+            <AspectRatio maxW="lg" ratio={2 / 1}>
+              <iframe
+                src="https://www.youtube.com/embed/pE9k-U5Onpg"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </AspectRatio>
 
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
+            {/* <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
+            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
+            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
+            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
+            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
+            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
+            <Box w="3xs" h="3xs" bgColor="gray.300"></Box> */}
+          </Grid>
+        </Box>
+        {/* Video [end] */}
 
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
+        {/* As Featured in [start] */}
+        <Box>
+          <Heading
+            px="8"
+            py="8"
+            bgColor="#E8EDEE"
+            fontWeight="semibold"
+            size="lg"
+          >
+            How it works
+          </Heading>
+          <Image src="https://scontent.fdac38-1.fna.fbcdn.net/v/t1.15752-9/151807216_3671078216321756_3353201162234105187_n.png?_nc_cat=102&ccb=3&_nc_sid=ae9488&_nc_ohc=HsTuRp-FEpUAX_hSgZN&_nc_ht=scontent.fdac38-1.fna&oh=07e6995635fa1ea3b6b8c6f65b36d5d4&oe=605AEBE8" />
+        </Box>
+        {/* As Featured in [end] */}
 
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
+        {/* Subscribe [start] */}
 
-        .title,
-        .description {
-          text-align: center;
-        }
+        <Box bgColor="#768692" px="8" py="8">
+          <Heading size="lg" color="white" mb="4">
+            Subscribe to our newsletter
+          </Heading>
+          <Flex
+            alignItems={["flex-start", "flex-start", "flex-start", "stretch"]}
+            maxW="xl"
+            flexDirection={["column", "column", "row"]}
+            style={{
+              gap: "0.5rem",
+            }}
+          >
+            <Input bgColor="white" />
+            <Button
+              p="0.7em 1.5em"
+              width="auto"
+              height="auto"
+              minW="auto"
+              bgColor="#005EB8"
+              color="white"
+              _hover={{
+                bgColor: "#E8EDEE",
+                color: "#333",
+              }}
+            >
+              learn more
+            </Button>
+          </Flex>
+        </Box>
 
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
+        {/* Subscribe [end] */}
 
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
+        {/* Latest from Blog [start] */}
 
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
+        <Box as="header" px="8" py="8" bgColor="#E8EDEE" as="header">
+          <Heading fontWeight="semibold" size="lg">
+            Latest from the blog
+          </Heading>
+        </Box>
 
-          max-width: 800px;
-          margin-top: 3rem;
-        }
+        <Box px="8" py="4" overflowX="hidden">
+          <Grid
+            py="4"
+            gridAutoColumns="14rem"
+            gridAutoFlow="column"
+            gap="8"
+            overflowX="scroll"
+          >
+            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
+            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
+            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
+            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
+            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
+            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
+            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
+          </Grid>
+        </Box>
+        {/* Latest from Blog [end] */}
 
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-      <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    </div>
-  )
+        {/* Comment [start] */}
+        {/* Comment [end] */}
+      </Container>
+    </>
+  );
 }
