@@ -23,7 +23,7 @@ export default function About({ markdownBody }) {
 }
 
 export async function getStaticProps() {
-  const content = await import(`../pageContents/aboutUs.md`);
+  const content = await import(`../pageContents/research.md`);
   // const config = await import(`../../siteconfig.json`);
 
   const data = matter(content.default);

@@ -18,6 +18,8 @@ import {
 import Head from "next/head";
 import Link from "next/link";
 
+import { Menu, MenuItem, MenuButton, MenuList } from "@chakra-ui/react";
+
 export default function MainLayout({ children }) {
   return (
     <>
@@ -54,12 +56,44 @@ function Nav() {
             <Link href="/blog" passHref>
               <Anchor>blog</Anchor>
             </Link>
-            <Link href="/about" passHref>
-              <Anchor>about</Anchor>
+            <Link href="/research" passHref>
+              <Anchor>research</Anchor>
+            </Link>
+            <Link href="/faq" passHref>
+              <Anchor>faq</Anchor>
+            </Link>
+
+            <Menu isLazy>
+              <MenuButton>
+                <Anchor>about</Anchor>
+              </MenuButton>
+
+              <MenuList>
+                <MenuItem>
+                  <Link href="/about" passHref>
+                    <Anchor>About Us</Anchor>
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link href="/our-mission" passHref>
+                    <Anchor>Our Mission</Anchor>
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link href="/our-approach" passHref>
+                    <Anchor>Our Approach</Anchor>
+                  </Link>
+                </MenuItem>
+              </MenuList>
+            </Menu>
+
+            <Link href="/history" passHref>
+              <Anchor>history</Anchor>
             </Link>
             <Link href="/contact" passHref>
               <Anchor>contact</Anchor>
             </Link>
+
             <Link href="/donate" passHref>
               <Button
                 as="a"
