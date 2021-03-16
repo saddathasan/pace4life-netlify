@@ -48,7 +48,7 @@ function Nav() {
         <Flex px="8">
           <Link href="/" passHref>
             <Anchor fontWeight="bold" fontSize="xl">
-              PACE4LIFE
+              <img width="140" src="/vectors/logo-pace4life.svg" alt="" />
             </Anchor>
           </Link>
 
