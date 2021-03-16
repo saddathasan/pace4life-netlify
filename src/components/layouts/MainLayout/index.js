@@ -3,22 +3,32 @@ import {
   Heading,
   Box,
   Flex,
-  Grid,
-  Text,
-  Image,
-  Stack,
-  VStack,
   HStack,
-  FormControl,
-  FormLabel,
-  Input,
   Button,
   Link as Anchor,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import Link from "next/link";
+import matter from "gray-matter";
 
-import { Menu, MenuItem, MenuButton, MenuList } from "@chakra-ui/react";
+import navbarContent from "../../../../layoutContents/navbar.md";
+import footerContent from "../../../../layoutContents/navbar.md";
+
+// import { Menu, MenuItem, MenuButton, MenuList } from "@chakra-ui/react";
+
+console.log(`matterContent`, matterContent);
+
+function constructGrayMatter() {
+  const navbarGrayMatter = matter(navbarContent);
+  const footerGrayMatter = matter(footerContent);
+
+  return {
+    navbar,
+    footer,
+  };
+}
+
+const { navbarGrayMatter, footerGrayMatter } = constructGrayMatter();
 
 export default function MainLayout({ children }) {
   return (
@@ -53,7 +63,14 @@ function Nav() {
           </Link>
 
           <HStack ml="auto" spacing="10">
-            <Link href="/blog" passHref>
+            {navbarGrayMatter.data.navbar.navLinks.map(({ linkText, url }) => {
+              return (
+                <Link key={linkText} href={url} passHref>
+                  <Anchor>{linkText}</Anchor>
+                </Link>
+              );
+            })}
+            {/* <Link href="/blog" passHref>
               <Anchor>blog</Anchor>
             </Link>
             <Link href="/research" passHref>
@@ -92,7 +109,7 @@ function Nav() {
             </Link>
             <Link href="/contact" passHref>
               <Anchor>contact</Anchor>
-            </Link>
+            </Link> */}
 
             <Link href="/donate" passHref>
               <Button
@@ -126,7 +143,15 @@ function Footer() {
           </Heading>
 
           <HStack ml="auto" spacing="10">
-            <Link href="/" passHref>
+            {footerGrayMatter.data.footerLinks.map(({ linkText, url }) => {
+              return (
+                <Link href={url} passHref>
+                  <Anchor>{linkText}</Anchor>
+                </Link>
+              );
+            })}
+
+            {/* <Link href="/" passHref>
               <Anchor>instagram</Anchor>
             </Link>
             <Link href="/" passHref>
@@ -138,7 +163,7 @@ function Footer() {
 
             <Link href="/" passHref>
               <Anchor>youtube</Anchor>
-            </Link>
+            </Link> */}
           </HStack>
         </Flex>
       </Container>

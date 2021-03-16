@@ -11,9 +11,11 @@ import {
   ButtonGroup,
   AspectRatio,
 } from "@chakra-ui/react";
+import matter from "gray-matter";
 import Head from "next/head";
 
-export default function Home() {
+export default function Home({ frontmatter }) {
+  console.log(`frontmatter`, frontmatter);
   return (
     <>
       <Head>
@@ -204,4 +206,19 @@ export default function Home() {
       </Container>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const content = await import(`../pageContents/home.md`);
+  // const config = await import(`../../siteconfig.json`);
+
+  const data = matter(content.default);
+
+  return {
+    props: {
+      // siteTitle: config.title,
+      frontmatter: data.data,
+      markdownBody: data.content,
+    },
+  };
 }
