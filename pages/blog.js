@@ -74,10 +74,9 @@ export async function getStaticProps({ params }) {
      *
      */
     const path = `${process.cwd()}/_cmscontent/posts/${filenameWithoutdotMd}.md`;
-
-    console.log(`path`, path);
-    // const content = await import(`../public/_cmscontent/posts/${slug}.md`);
     const rawContent = readFileSync(path);
+
+    // const content = await import(`../public/_cmscontent/posts/${slug}.md`);
 
     return {
       post: matter(rawContent).data,

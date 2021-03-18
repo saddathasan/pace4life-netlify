@@ -1,8 +1,21 @@
 import matter from "gray-matter";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  PopoverArrow,
+  PopoverCloseButton,
+  Container,
+  Box,
+  Button,
+} from "@chakra-ui/react";
 
+import Link from "next/link";
 import { promises as fsPromises } from "fs";
 
-import { Container } from "@chakra-ui/react";
 import Head from "next/head";
 import MarkdownContent from "@components/MarkdownContent";
 
@@ -19,6 +32,25 @@ export default function Blog({ markdownBody, frontmatter }) {
           {/* <ReactMarkdown source={markdownBody} /> */}
           <MarkdownContent>{markdownBody}</MarkdownContent>
         </div>
+        {/* 
+        <Box>
+          <Popover>
+            <PopoverTrigger>
+              <Button>Edit</Button>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverHeader>Confirmation!</PopoverHeader>
+              <PopoverBody>
+                Edit this blog{" "}
+                <Link href="">
+                  <a></a>
+                </Link>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
+        </Box> */}
       </Container>
     </>
   );
