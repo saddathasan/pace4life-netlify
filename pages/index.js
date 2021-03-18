@@ -184,14 +184,6 @@ export default function Home({ frontmatter }) {
                 allowfullscreen
               ></iframe>
             </AspectRatio>
-
-            {/* <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
-            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
-            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
-            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
-            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
-            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
-            <Box w="3xs" h="3xs" bgColor="gray.300"></Box> */}
           </Grid>
         </Box>
         {/* Video [end] */}

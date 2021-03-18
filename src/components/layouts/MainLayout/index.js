@@ -62,7 +62,7 @@ function Footer() {
             {footerGrayMatter.data.footerLinks.map(({ imageLocation, url }) => {
               return (
                 <Link key={imageLocation} href={url} passHref>
-                  <Anchor>
+                  <Anchor target="_blank">
                     <Image width="26px" src={imageLocation} />
                   </Anchor>
                 </Link>
