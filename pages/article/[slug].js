@@ -32,7 +32,7 @@ export default function Blog({ markdownBody, frontmatter }) {
           {/* <ReactMarkdown source={markdownBody} /> */}
           <MarkdownContent>{markdownBody}</MarkdownContent>
         </div>
-
+        {/* 
         <Box>
           <Popover>
             <PopoverTrigger>
@@ -50,7 +50,7 @@ export default function Blog({ markdownBody, frontmatter }) {
               </PopoverBody>
             </PopoverContent>
           </Popover>
-        </Box>
+        </Box> */}
       </Container>
     </>
   );

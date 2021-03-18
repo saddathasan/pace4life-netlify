@@ -1,10 +1,10 @@
 ---
 copyRight: "© pace4life 2021"
-  footerLinks:
-    [
-      { linkText: "instagram",  url: "/about" },
-      { linkText: "facebook",  url: "/facebook" },
-      { linkText: "twitter", url: "/twitter" },
-      { linkText: "youtube", url: "/youtube" },
-    ]
+footerLinks:
+  [
+    { imageLocation: "/images/footer/instagram.png", url: "/about" },
+    { imageLocation: "/images/footer/facebook.png", url: "/about" },
+    { imageLocation: "/images/footer/twitter.png", url: "/about" },
+    { imageLocation: "/images/footer/youtube.png", url: "/about" },
+  ]
 ---

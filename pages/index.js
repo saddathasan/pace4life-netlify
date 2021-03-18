@@ -10,12 +10,37 @@ import {
   Button,
   ButtonGroup,
   AspectRatio,
+  Link as Anchor,
 } from "@chakra-ui/react";
 import matter from "gray-matter";
 import Head from "next/head";
+import Link from "next/link";
+import React from "react";
 
 export default function Home({ frontmatter }) {
   console.log(`frontmatter`, frontmatter);
+
+  const featureRef = React.useRef(null);
+  const publishedInRef = React.useRef(null);
+
+  function onTapRight(ref) {
+    ref.current.scrollBy({
+      top: 0,
+      left: ref.current.clientWidth / 2,
+      behavior: "smooth",
+    });
+  }
+
+  function onTapLeft(ref) {
+    ref.current.scrollBy({
+      top: 0,
+      left: -(ref.current.clientWidth / 2),
+      behavior: "smooth",
+    });
+  }
+
+  const { publishedIn, featuredIn } = frontmatter;
+
   return (
     <>
       <Head>
@@ -72,19 +97,65 @@ export default function Home({ frontmatter }) {
         {/* As Featured in [start] */}
 
         {/* Carousel [start] */}
-        <Grid
-          px="8"
-          py="9"
+        <Box
           bgColor="#E8EDEE"
-          templateColumns="repeat(4,1fr)"
-          alignItems="center"
-          gap="4"
+          px="12"
+          py="4"
+          overflow="hidden"
+          position="relative"
         >
-          <Image src="/vectors/logo-bbc.svg" />
-          <Image src="/vectors/logo-bbc-radio.svg" />
-          <Image src="/vectors/logo-bbc-news.svg" />
-          <Image src="/vectors/logo-bbc-shiwali.svg" />
-        </Grid>
+          <Grid
+            py="4"
+            gridAutoColumns="14rem"
+            gridAutoFlow="column"
+            gap="8"
+            overflowX="scroll"
+            ref={featureRef}
+          >
+            {featuredIn.map(({ imageLocation }) => {
+              return (
+                <AspectRatio key={imageLocation} ratio={1}>
+                  <Image
+                    src={imageLocation}
+                    width="100%"
+                    height="100%"
+                    style={{
+                      objectFit: "contain",
+                    }}
+                  />
+                </AspectRatio>
+              );
+            })}
+          </Grid>
+          <Box
+            position="absolute"
+            right="3"
+            top="50%"
+            transitionDuration="300ms"
+            transform="translateY(-50%)"
+            cursor="pointer"
+            _hover={{
+              transform: "translateY(-50%) scale(1.2)",
+            }}
+            onClick={() => onTapRight(featureRef)}
+          >
+            <ChevronRight />
+          </Box>
+          <Box
+            position="absolute"
+            left="3"
+            top="50%"
+            transform="translateY(-50%)"
+            transitionDuration="300ms"
+            cursor="pointer"
+            _hover={{
+              transform: "translateY(-50%) scale(1.2)",
+            }}
+            onClick={() => onTapLeft(featureRef)}
+          >
+            <ChevronLeft />
+          </Box>
+        </Box>
         {/* Carousel [end] */}
 
         {/* Video [start] */}
@@ -139,6 +210,91 @@ export default function Home({ frontmatter }) {
           <Image src="https://scontent.fdac38-1.fna.fbcdn.net/v/t1.15752-9/151807216_3671078216321756_3353201162234105187_n.png?_nc_cat=102&ccb=3&_nc_sid=ae9488&_nc_ohc=HsTuRp-FEpUAX_hSgZN&_nc_ht=scontent.fdac38-1.fna&oh=07e6995635fa1ea3b6b8c6f65b36d5d4&oe=605AEBE8" />
         </Box>
         {/* As Featured in [end] */}
+        {/* As Published in [start] */}
+
+        <Box as="header" px="8" py="8" bgColor="#768692">
+          <Heading fontWeight="semibold" size="lg" color="white">
+            As Published in
+          </Heading>
+        </Box>
+
+        {/* As Published in [end] */}
+
+        {/* Published [start] */}
+        <Box
+          bgColor="#E8EDEE"
+          px="12"
+          py="4"
+          overflow="hidden"
+          position="relative"
+        >
+          <Grid
+            py="4"
+            gridAutoColumns="14rem"
+            gridAutoFlow="column"
+            gap="6"
+            overflowX="scroll"
+            ref={publishedInRef}
+          >
+            {publishedIn.map(({ url, imageLocation }) => {
+              return (
+                <Link href={url} passHref>
+                  <Anchor
+                    bgColor="#768692"
+                    display="block"
+                    p={4}
+                    borderRadius="md"
+                    transitionDuration="200ms"
+                    cursor="pointer"
+                    target="_blank"
+                    // _hover={{
+                    //   bg: "gray.200",
+                    // }}
+                  >
+                    <AspectRatio ratio={1}>
+                      <Image
+                        style={{
+                          objectFit: "contain",
+                        }}
+                        src={imageLocation}
+                      />
+                    </AspectRatio>
+                  </Anchor>
+                </Link>
+              );
+            })}
+            {/* */}
+          </Grid>
+          <Box
+            position="absolute"
+            right="3"
+            top="50%"
+            transitionDuration="300ms"
+            transform="translateY(-50%)"
+            cursor="pointer"
+            _hover={{
+              transform: "translateY(-50%) scale(1.2)",
+            }}
+            onClick={() => onTapRight(publishedInRef)}
+          >
+            <ChevronRight />
+          </Box>
+          <Box
+            position="absolute"
+            left="3"
+            top="50%"
+            transform="translateY(-50%)"
+            transitionDuration="300ms"
+            cursor="pointer"
+            _hover={{
+              transform: "translateY(-50%) scale(1.2)",
+            }}
+            onClick={() => onTapLeft(publishedInRef)}
+          >
+            <ChevronLeft />
+          </Box>
+        </Box>
+        {/* Published [end] */}
 
         {/* Subscribe [start] */}
 
@@ -221,4 +377,42 @@ export async function getStaticProps() {
       markdownBody: data.content,
     },
   };
+}
+
+function ChevronRight() {
+  return (
+    <svg
+      width="32"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M9 5l7 7-7 7"
+      ></path>
+    </svg>
+  );
+}
+
+function ChevronLeft() {
+  return (
+    <svg
+      width="32"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M15 19l-7-7 7-7"
+      ></path>
+    </svg>
+  );
 }
