@@ -3,22 +3,30 @@ import {
   Heading,
   Box,
   Flex,
-  Grid,
-  Text,
-  Image,
-  Stack,
-  VStack,
   HStack,
-  FormControl,
-  FormLabel,
-  Input,
   Button,
+  Image,
   Link as Anchor,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import Link from "next/link";
+import matter from "gray-matter";
 
-import { Menu, MenuItem, MenuButton, MenuList } from "@chakra-ui/react";
+import navbarContent from "../../../../layoutContents/navbar.md";
+import footerContent from "../../../../layoutContents/footer.md";
+import Navbar from "./components/Navbar";
+
+function constructGrayMatter() {
+  const navbarGrayMatter = matter(navbarContent);
+  const footerGrayMatter = matter(footerContent);
+
+  return {
+    navbarGrayMatter,
+    footerGrayMatter,
+  };
+}
+
+const { navbarGrayMatter, footerGrayMatter } = constructGrayMatter();
 
 export default function MainLayout({ children }) {
   return (
@@ -31,7 +39,7 @@ export default function MainLayout({ children }) {
         />
       </Head>
       <Flex direction="column" minH="100vh">
-        <Nav />
+        <Navbar navbarGrayMatter={navbarGrayMatter} />
         <Box as="main" flexGrow="1">
           {children}
         </Box>
@@ -41,104 +49,25 @@ export default function MainLayout({ children }) {
   );
 }
 
-function Nav() {
-  return (
-    <Box as="nav" bgColor="gray.50" py="6">
-      <Container maxW="6xl">
-        <Flex px="8">
-          <Link href="/" passHref>
-            <Anchor fontWeight="bold" fontSize="xl">
-              PACE4LIFE
-            </Anchor>
-          </Link>
-
-          <HStack ml="auto" spacing="10">
-            <Link href="/blog" passHref>
-              <Anchor>blog</Anchor>
-            </Link>
-            <Link href="/research" passHref>
-              <Anchor>research</Anchor>
-            </Link>
-            <Link href="/faq" passHref>
-              <Anchor>faq</Anchor>
-            </Link>
-
-            <Menu isLazy>
-              <MenuButton>
-                <Anchor>about</Anchor>
-              </MenuButton>
-
-              <MenuList>
-                <MenuItem>
-                  <Link href="/about" passHref>
-                    <Anchor>About Us</Anchor>
-                  </Link>
-                </MenuItem>
-                <MenuItem>
-                  <Link href="/our-mission" passHref>
-                    <Anchor>Our Mission</Anchor>
-                  </Link>
-                </MenuItem>
-                <MenuItem>
-                  <Link href="/our-approach" passHref>
-                    <Anchor>Our Approach</Anchor>
-                  </Link>
-                </MenuItem>
-              </MenuList>
-            </Menu>
-
-            <Link href="/history" passHref>
-              <Anchor>history</Anchor>
-            </Link>
-            <Link href="/contact" passHref>
-              <Anchor>contact</Anchor>
-            </Link>
-
-            <Link href="/donate" passHref>
-              <Button
-                as="a"
-                size="sm"
-                lineHeight="10"
-                bgColor="#005EB8"
-                color="white"
-                _hover={{
-                  bgColor: "#E8EDEE",
-                  color: "#333",
-                }}
-              >
-                donate
-              </Button>
-            </Link>
-          </HStack>
-        </Flex>
-      </Container>
-    </Box>
-  );
-}
-
 function Footer() {
   return (
     <Box as="footer" bgColor="#768692" py="6" color="#ffffff">
       <Container maxW="6xl">
         <Flex alignItems="center">
           <Heading as="small" fontSize="sm">
-            © pace4life 2021
+            {footerGrayMatter.data.copyRight}
           </Heading>
 
-          <HStack ml="auto" spacing="10">
-            <Link href="/" passHref>
-              <Anchor>instagram</Anchor>
-            </Link>
-            <Link href="/" passHref>
-              <Anchor>facebook</Anchor>
-            </Link>
-            <Link href="/" passHref>
-              <Anchor>twitter</Anchor>
-            </Link>
-
-            <Link href="/" passHref>
-              <Anchor>youtube</Anchor>
-            </Link>
+          <HStack ml="auto" spacing="8">
+            {footerGrayMatter.data.footerLinks.map(({ imageLocation, url }) => {
+              return (
+                <Link key={imageLocation} href={url} passHref>
+                  <Anchor target="_blank">
+                    <Image width="26px" src={imageLocation} />
+                  </Anchor>
+                </Link>
+              );
+            })}
           </HStack>
         </Flex>
       </Container>
