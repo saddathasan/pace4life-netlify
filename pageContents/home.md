@@ -1,4 +1,7 @@
 ---
+page_name: "Home"
+slug: "home"
+
 publishedIn:
   [
     {
