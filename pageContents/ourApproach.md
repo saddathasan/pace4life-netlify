@@ -1,3 +1,8 @@
+---
+page_name: "Our Approach"
+slug: "ourApproach"
+---
+
 # Our mission is to recycle pacemakers from the Developed World for use in the Developing World.
 
 Pace4Life proposes to create a link between the Developed World and the Developing World by facilitating the collection of used pacemakers from Hospitals, Funeral Homes/Crematoriums and Mortuaries. Pace4Life will assess the pacemakers viability for reuse or require recycling, facilitating this as required.

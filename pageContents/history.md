@@ -1,3 +1,8 @@
+---
+page_name: "History"
+slug: "history"
+---
+
 # Every year up to 2 million people die in the developing world because they don't have enough money for a lifesaving pacemaker operation.
 
 In the United Kingdom, approximately 35,000 individuals undergo pacemaker implant surgery each year, costing around £5,000 - £50,000 a time. When a pacemaker user dies, the device is buried with them, or, if the deceased chooses to be cremated it is discarded either as medical waste or often just placed in a box and forgotten.  In the developing world around 2 million people die every year due to inaccessibility to medical healthcare and the prohibitive cost of lifesaving devices and a pacemaker surgery.

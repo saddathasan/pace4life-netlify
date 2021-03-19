@@ -1,3 +1,8 @@
+---
+page_name: "About Us"
+slug: "aboutUs"
+---
+
 # Hundreds of perfectly good pacemaker devices just get tossed aside in the U.K. alone.
 
 Currently, pacemakers removed prior to cremation are not recycled and are either thrown away or dumped into boxes and stock piled over years in funeral parlors and mortuaries.

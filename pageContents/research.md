@@ -1,3 +1,8 @@
+---
+page_name: "Research"
+slug: "research"
+---
+
 # Extensive reasearch has been performed in this field from a range of academics and academic institutes.
 
 **_Cardiac Device Reutilization: Is It Time to “Go Green” in Underserved Countries?_**
