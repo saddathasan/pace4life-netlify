@@ -23,4 +23,4 @@ collections:
     fields:
       - {label: "Page Name", name: "page_name", widget: "string"}
       - {label: "Slug", name: "slug", widget: "string"}
-      - {label: "Content", name: "content", widget: "markdown"}
+      - {label: "Body", name: "body", widget: "markdown"}
