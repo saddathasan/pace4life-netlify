@@ -206,7 +206,7 @@ export default function Home({ frontmatter }) {
 
         <Box as="header" px="8" py="8" bgColor="#768692">
           <Heading fontWeight="semibold" size="lg" color="white">
-            As Published in
+            Our Partners
           </Heading>
         </Box>
 
