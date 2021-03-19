@@ -1,3 +1,8 @@
+---
+page_name: "FAQ"
+slug: "faq"
+---
+
 # A number of questions may come to mind, below we have the answers below.
 
 ### **Have pacemakers been reused previously?**

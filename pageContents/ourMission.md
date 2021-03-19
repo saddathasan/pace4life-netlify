@@ -1,3 +1,8 @@
+---
+page_name: "Our Mission"
+slug: "ourMission"
+---
+
 # We want to make a lasting impact in the health and well being of people in the developing world.
 
 Our mission is to make a lasting impact in the health and well being of people in developing countries by reusing pacemakers which are currently thrown away in the UK as waste. To achieve this we aim to run a range of projects and services that fall broadly into five areas:

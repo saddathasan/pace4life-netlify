@@ -13,6 +13,7 @@ collections:
     create: true
     fields:
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: pageContents
@@ -21,4 +22,5 @@ collections:
     create: true
     fields:
       - {label: "Page Name", name: "page_name", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"}
       - {label: "Content", name: "content", widget: "markdown"}
