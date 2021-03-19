@@ -14,3 +14,11 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: pageContents
+    label: "articles"
+    folder: "pageContents"
+    create: true
+    fields:
+      - {label: "Page Name", name: "page_name", widget: "string"}
+      - {label: "Content", name: "content", widget: "markdown"}
