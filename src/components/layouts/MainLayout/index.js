@@ -6,6 +6,7 @@ import {
   HStack,
   Button,
   Image,
+  Stack,
   Link as Anchor,
 } from "@chakra-ui/react";
 import Head from "next/head";
@@ -53,12 +54,17 @@ function Footer() {
   return (
     <Box as="footer" bgColor="#768692" py="6" color="#ffffff">
       <Container maxW="6xl">
-        <Flex alignItems="center">
+        <Stack
+          spacing={5}
+          alignItems={["stretch", "center"]}
+          direction={["column", "row"]}
+          justifyContent={[, "space-between"]}
+        >
           <Heading as="small" fontSize="sm">
             {footerGrayMatter.data.copyRight}
           </Heading>
 
-          <HStack ml="auto" spacing="8">
+          <HStack spacing="8">
             {footerGrayMatter.data.footerLinks.map(({ imageLocation, url }) => {
               return (
                 <Link key={imageLocation} href={url} passHref>
@@ -69,7 +75,7 @@ function Footer() {
               );
             })}
           </HStack>
-        </Flex>
+        </Stack>
       </Container>
     </Box>
   );
