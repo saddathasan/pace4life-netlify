@@ -5,7 +5,9 @@ logo:
 navLinks:
   [
     { linkText: "about", url: "/about" },
-    { linkText: "contact", url: "/contact" },
+    { linkText: "history", url: "/history" },
+    { linkText: "research", url: "/research" },
     { linkText: "blog", url: "/blog" },
+    { linkText: "contact", url: "/contact" },
   ]
 ---

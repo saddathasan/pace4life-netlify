@@ -11,15 +11,18 @@ import {
   ButtonGroup,
   AspectRatio,
   Link as Anchor,
+  VStack,
 } from "@chakra-ui/react";
 import matter from "gray-matter";
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
 
-export default function Home({ frontmatter }) {
-  console.log(`frontmatter`, frontmatter);
+import { promises as fsPromises, readFileSync } from "fs";
 
+import { ChevronLeft, ChevronRight } from "../src/components/Icons";
+
+export default function Home({ frontmatter, latestBlogPosts }) {
   const featureRef = React.useRef(null);
   const publishedInRef = React.useRef(null);
 
@@ -39,7 +42,16 @@ export default function Home({ frontmatter }) {
     });
   }
 
-  const { publishedIn, featuredIn } = frontmatter;
+  const {
+    publishedIn,
+    featuredIn,
+    subscribe_section,
+    blog_section,
+    youtubeSection,
+    secondarySection,
+    heroSection,
+    how_it_works_section,
+  } = frontmatter;
 
   return (
     <>
@@ -50,12 +62,52 @@ export default function Home({ frontmatter }) {
 
       <Container maxW="6xl">
         {/* Hero [start] */}
-        <Box bgColor="blackAlpha.600">
-          <Image src="https://scontent.fdac38-1.fna.fbcdn.net/v/t1.15752-9/154501614_846398872589856_3915714248888137523_n.png?_nc_cat=106&ccb=3&_nc_sid=ae9488&_nc_ohc=8cjbdUFAdvAAX9hrl3Q&_nc_ht=scontent.fdac38-1.fna&oh=9b4ec5619fae12a56eae422f1d7ff0a6&oe=605CC008" />
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        <Box
+          h="65vh"
+          bg={`url(${heroSection.bannerImageLocation}) no-repeat center center/cover`}
+          p="8"
+          d="grid"
+          gridTemplateColumns={["1fr", , "1.5fr 1fr"]}
+        >
+          <Box pb="12">
+            {heroSection.headings.map((text) => {
+              return (
+                <Heading
+                  key={text}
+                  fontWeight="semibold"
+                  size="2xl"
+                  color="white"
+                  mb="4"
+                >
+                  {text}
+                </Heading>
+              );
+            })}
+            {heroSection.texts.map((text) => {
+              return (
+                <Text key={text} fontSize="xl" color="white" mb="4">
+                  {text}
+                </Text>
+              );
+            })}
+          </Box>
+          {/* <Image src={heroSection.bannerImageLocation} /> */}
         </Box>
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
         {/* Hero [end] */}
 
         {/* Learn More [start] */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
         <Grid
           pt="4"
           pb="12"
@@ -64,19 +116,21 @@ export default function Home({ frontmatter }) {
           columnGap="8"
         >
           <Box alignSelf="center">
-            <Heading fontWeight="light" mb="4">
-              At pace4life, we help people to{" "}
-              <Heading as="span">donate pacemakers</Heading>
+            <Heading fontWeight="semibold" mb="4">
+              {secondarySection.content.headerText}
+              {/* At pace4life, we help people to{" "}
+              <Heading as="span">donate pacemakers</Heading> */}
             </Heading>
             <Text fontSize="xl" mb="6">
-              Sed ut perspiciatis unde omnis iste natus error sit volup tatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt.
+              {secondarySection.content.paragraphText}
             </Text>
             <ButtonGroup size="lg" spacing="4">
-              <Button colorScheme="blue">learn more</Button>
-              <Button colorScheme="gray">apply</Button>
+              <Button colorScheme="blue">
+                {secondarySection.content.primary_button_text}
+              </Button>
+              <Button colorScheme="gray">
+                {secondarySection.content.secondary_button_text}
+              </Button>
             </ButtonGroup>
           </Box>
           <Image
@@ -84,19 +138,33 @@ export default function Home({ frontmatter }) {
             src="https://scontent.fdac38-1.fna.fbcdn.net/v/t1.15752-9/154413280_3996468680398557_1032265096712196446_n.png?_nc_cat=102&ccb=3&_nc_sid=ae9488&_nc_ohc=V7FLhJMmu-wAX8JNq8A&_nc_ht=scontent.fdac38-1.fna&oh=19c3cfb8fc944b142e869722b3ed23b4&oe=605CCE96"
           />
         </Grid>
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
         {/* Learn More [end] */}
 
         {/* As Featured in [start] */}
-
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
         <Box as="header" px="8" py="8" bgColor="#768692">
           <Heading fontWeight="semibold" size="lg" color="white">
-            As Featured in
+            {featuredIn.headerText}
           </Heading>
         </Box>
-
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
         {/* As Featured in [start] */}
 
         {/* Carousel [start] */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
         <Box
           bgColor="#E8EDEE"
           px="12"
@@ -112,7 +180,7 @@ export default function Home({ frontmatter }) {
             overflowX="scroll"
             ref={featureRef}
           >
-            {featuredIn.map(({ imageLocation }) => {
+            {featuredIn.images.map(({ imageLocation }) => {
               return (
                 <AspectRatio key={imageLocation} ratio={1}>
                   <Image
@@ -156,10 +224,17 @@ export default function Home({ frontmatter }) {
             <ChevronLeft />
           </Box>
         </Box>
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
         {/* Carousel [end] */}
 
         {/* Video [start] */}
-
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
         <Box px="8" py="4" bgColor="#768692" overflowX="hidden">
           <Grid
             py="4"
@@ -168,27 +243,31 @@ export default function Home({ frontmatter }) {
             gap="8"
             overflowX="scroll"
           >
-            <AspectRatio maxW="lg" ratio={2 / 1}>
-              <iframe
-                src="https://www.youtube.com/embed/Bgu9xp3sfYk"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              />
-            </AspectRatio>
-            <AspectRatio maxW="lg" ratio={2 / 1}>
-              <iframe
-                src="https://www.youtube.com/embed/pE9k-U5Onpg"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </AspectRatio>
+            {youtubeSection.links.map((url) => {
+              return (
+                <AspectRatio maxW="lg" ratio={2 / 1}>
+                  <iframe
+                    src={url}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  />
+                </AspectRatio>
+              );
+            })}
           </Grid>
         </Box>
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
         {/* Video [end] */}
 
         {/* As Featured in [start] */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
         <Box>
           <Heading
             px="8"
@@ -197,24 +276,40 @@ export default function Home({ frontmatter }) {
             fontWeight="semibold"
             size="lg"
           >
-            How it works
+            {how_it_works_section.header_text}
           </Heading>
-          <Image src="https://scontent.fdac38-1.fna.fbcdn.net/v/t1.15752-9/151807216_3671078216321756_3353201162234105187_n.png?_nc_cat=102&ccb=3&_nc_sid=ae9488&_nc_ohc=HsTuRp-FEpUAX_hSgZN&_nc_ht=scontent.fdac38-1.fna&oh=07e6995635fa1ea3b6b8c6f65b36d5d4&oe=605AEBE8" />
+          <Image src={how_it_works_section.diagram_image_location} />
         </Box>
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
         {/* As Featured in [end] */}
-        {/* As Published in [start] */}
 
-        <Box as="header" px="8" py="8" bgColor="#768692">
+        {/* As Published in [start] */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        <Box as="header" px="8" pt="8" bgColor="#768692">
           <Heading fontWeight="semibold" size="lg" color="white">
-            Our Partners
+            {publishedIn.headerText}
           </Heading>
         </Box>
-
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
         {/* As Published in [end] */}
 
         {/* Published [start] */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
         <Box
-          bgColor="#E8EDEE"
+          // bgColor="#E8EDEE"
+          bgColor="#768692"
           px="12"
           py="4"
           overflow="hidden"
@@ -228,7 +323,7 @@ export default function Home({ frontmatter }) {
             overflowX="scroll"
             ref={publishedInRef}
           >
-            {publishedIn.map(({ url, imageLocation }) => {
+            {publishedIn.images.map(({ url, imageLocation }) => {
               return (
                 <Link href={url} passHref>
                   <Anchor
@@ -286,13 +381,21 @@ export default function Home({ frontmatter }) {
             <ChevronLeft />
           </Box>
         </Box>
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
         {/* Published [end] */}
 
         {/* Subscribe [start] */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
 
-        <Box bgColor="#768692" px="8" py="8">
+        <Box bgColor="#48B7E4" px="8" py="8">
           <Heading size="lg" color="white" mb="4">
-            Subscribe to our newsletter
+            {subscribe_section.header_text}
           </Heading>
           <Flex
             alignItems={["flex-start", "flex-start", "flex-start", "stretch"]}
@@ -315,18 +418,24 @@ export default function Home({ frontmatter }) {
                 color: "#333",
               }}
             >
-              learn more
+              {subscribe_section.button_text}
             </Button>
           </Flex>
         </Box>
-
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
         {/* Subscribe [end] */}
 
         {/* Latest from Blog [start] */}
-
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
         <Box as="header" px="8" py="8" bgColor="#E8EDEE" as="header">
           <Heading fontWeight="semibold" size="lg">
-            Latest from the blog
+            {blog_section.header_text}
           </Heading>
         </Box>
 
@@ -338,19 +447,76 @@ export default function Home({ frontmatter }) {
             gap="8"
             overflowX="scroll"
           >
-            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
-            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
-            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
-            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
-            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
-            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
-            <Box w="3xs" h="3xs" bgColor="gray.300"></Box>
+            {latestBlogPosts.map(({ title, slug, created_at }) => {
+              return (
+                <Link href={slug ? `/article/${slug}` : "/blog"} passHref>
+                  <Box
+                    as="a"
+                    borderRadius="md"
+                    key={title}
+                    w="3xs"
+                    h="3xs"
+                    bgColor="rgba(0,0,0,0.7)"
+                    display="grid"
+                    gridTemplateAreas={`"hero"`}
+                    // placeItems="center"
+                    overflow="hidden"
+                    color="white"
+                  >
+                    <Grid p="4" gridArea="hero" align="flex-start">
+                      <Text
+                        alignSelf="flex-end"
+                        fontSize="xl"
+                        fontWeight="bold"
+                      >
+                        {title}
+                      </Text>
+                      <Text
+                        alignSelf="flex-end"
+                        fontSize="lg"
+                        fontWeight="bold"
+                      >
+                        {created_at}
+                      </Text>
+                    </Grid>
+
+                    <Image
+                      src={blog_section.card_image_location}
+                      gridArea="hero"
+                      width="100%"
+                      height="100%"
+                      objectFit="cover"
+                      zIndex="-1"
+                    />
+                  </Box>
+                </Link>
+              );
+            })}
+
+            <Box
+              borderRadius="md"
+              w="3xs"
+              h="3xs"
+              bgColor="whiteAlpha.400"
+              borderColor="gray.300"
+              borderWidth="1px"
+              overflow="hidden"
+              display="grid"
+              placeItems="center"
+            >
+              <Link href="/blog" passHref>
+                <Button colorScheme="blue" variant="outline">
+                  More from blog
+                </Button>
+              </Link>
+            </Box>
           </Grid>
         </Box>
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
+        {/* ************ */}
         {/* Latest from Blog [end] */}
-
-        {/* Comment [start] */}
-        {/* Comment [end] */}
       </Container>
     </>
   );
@@ -358,6 +524,8 @@ export default function Home({ frontmatter }) {
 
 export async function getStaticProps() {
   const content = await import(`../pageContents/home.md`);
+
+  const latestBlogPosts = getLatestPostList(await getPostList());
   // const config = await import(`../../siteconfig.json`);
 
   const data = matter(content.default);
@@ -367,44 +535,44 @@ export async function getStaticProps() {
       // siteTitle: config.title,
       frontmatter: data.data,
       markdownBody: data.content,
+      latestBlogPosts,
     },
   };
 }
 
-function ChevronRight() {
-  return (
-    <svg
-      width="32"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M9 5l7 7-7 7"
-      ></path>
-    </svg>
-  );
+async function getPostList() {
+  const markdownFiles = await fsPromises.readdir("_cmscontent/posts"); // ["defensive.md","async.md"]
+
+  const postList = markdownFiles.map((filename) => {
+    const filenameWithoutdotMd = filename.replace(/.md$/, "");
+
+    /**
+     *
+     * Use `process.cwd()` to point to the root folder
+     *
+     */
+    const path = `${process.cwd()}/_cmscontent/posts/${filenameWithoutdotMd}.md`;
+    const rawContent = readFileSync(path);
+
+    const postContent = matter(rawContent).data;
+    // const content = await import(`../public/_cmscontent/posts/${slug}.md`);
+    const { created_at } = postContent;
+
+    const parsedTime = created_at ? new Date(created_at).getTime() : 0;
+
+    return {
+      ...postContent,
+      parsedTime,
+    };
+  });
+
+  return postList;
 }
 
-function ChevronLeft() {
-  return (
-    <svg
-      width="32"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M15 19l-7-7 7-7"
-      ></path>
-    </svg>
-  );
+function getLatestPostList(postList) {
+  const result = postList.sort((a, b) => {
+    return b.parsedTime - a.parsedTime;
+  });
+
+  return result.slice(0, 5);
 }
