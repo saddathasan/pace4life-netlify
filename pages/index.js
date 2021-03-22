@@ -25,11 +25,14 @@ import { ChevronLeft, ChevronRight } from "../src/components/Icons";
 export default function Home({ frontmatter, latestBlogPosts }) {
   const featureRef = React.useRef(null);
   const publishedInRef = React.useRef(null);
+  const youtubeSectionRef = React.useRef(null);
+  const blogSectionRef = React.useRef(null);
 
   function onTapRight(ref) {
+    console.log(`ref`, ref);
     ref.current.scrollBy({
       top: 0,
-      left: ref.current.clientWidth / 2,
+      left: ref.current.clientWidth,
       behavior: "smooth",
     });
   }
@@ -37,7 +40,7 @@ export default function Home({ frontmatter, latestBlogPosts }) {
   function onTapLeft(ref) {
     ref.current.scrollBy({
       top: 0,
-      left: -(ref.current.clientWidth / 2),
+      left: -ref.current.clientWidth,
       behavior: "smooth",
     });
   }
@@ -235,27 +238,62 @@ export default function Home({ frontmatter, latestBlogPosts }) {
         {/* ************ */}
         {/* ************ */}
         {/* ************ */}
-        <Box px="8" py="4" bgColor="#768692" overflowX="hidden">
+        <Box
+          px="12"
+          py="4"
+          bgColor="#768692"
+          overflow="hidden"
+          position="relative"
+        >
           <Grid
             py="4"
-            gridAutoColumns="32rem"
+            gridAutoColumns={["24rem", , "32rem"]}
             gridAutoFlow="column"
             gap="8"
             overflowX="scroll"
+            ref={youtubeSectionRef}
           >
             {youtubeSection.links.map((url) => {
               return (
                 <AspectRatio maxW="lg" ratio={2 / 1}>
                   <iframe
                     src={url}
-                    frameborder="0"
+                    frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
+                    allowFullScreen
                   />
                 </AspectRatio>
               );
             })}
           </Grid>
+          <Box
+            position="absolute"
+            right="3"
+            top="50%"
+            transitionDuration="300ms"
+            transform="translateY(-50%)"
+            cursor="pointer"
+            _hover={{
+              transform: "translateY(-50%) scale(1.2)",
+            }}
+            onClick={() => onTapRight(youtubeSectionRef)}
+          >
+            <ChevronRight />
+          </Box>
+          <Box
+            position="absolute"
+            left="3"
+            top="50%"
+            transform="translateY(-50%)"
+            transitionDuration="300ms"
+            cursor="pointer"
+            _hover={{
+              transform: "translateY(-50%) scale(1.2)",
+            }}
+            onClick={() => onTapLeft(youtubeSectionRef)}
+          >
+            <ChevronLeft />
+          </Box>
         </Box>
         {/* ************ */}
         {/* ************ */}
@@ -439,13 +477,14 @@ export default function Home({ frontmatter, latestBlogPosts }) {
           </Heading>
         </Box>
 
-        <Box px="8" py="4" overflowX="hidden">
+        <Box px="12" py="4" overflow="hidden" position="relative">
           <Grid
             py="4"
             gridAutoColumns="14rem"
             gridAutoFlow="column"
             gap="8"
             overflowX="scroll"
+            ref={blogSectionRef}
           >
             {latestBlogPosts.map(({ title, slug, created_at }) => {
               return (
@@ -511,6 +550,34 @@ export default function Home({ frontmatter, latestBlogPosts }) {
               </Link>
             </Box>
           </Grid>
+          <Box
+            position="absolute"
+            right="3"
+            top="50%"
+            transitionDuration="300ms"
+            transform="translateY(-50%)"
+            cursor="pointer"
+            _hover={{
+              transform: "translateY(-50%) scale(1.2)",
+            }}
+            onClick={() => onTapRight(blogSectionRef)}
+          >
+            <ChevronRight />
+          </Box>
+          <Box
+            position="absolute"
+            left="3"
+            top="50%"
+            transform="translateY(-50%)"
+            transitionDuration="300ms"
+            cursor="pointer"
+            _hover={{
+              transform: "translateY(-50%) scale(1.2)",
+            }}
+            onClick={() => onTapLeft(blogSectionRef)}
+          >
+            <ChevronLeft />
+          </Box>
         </Box>
         {/* ************ */}
         {/* ************ */}
