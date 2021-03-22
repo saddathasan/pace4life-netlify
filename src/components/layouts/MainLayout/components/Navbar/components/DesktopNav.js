@@ -13,13 +13,15 @@ export default function Hamburger({ toggle, isOpen, navbarGrayMatter }) {
       </Box>
 
       <HStack display={{ base: "none", md: "flex" }} spacing={8} align="center">
-        {navbarGrayMatter.data.navLinks.map(({ linkText, url }) => {
-          return (
-            <Link key={linkText} href={url} passHref>
-              <Anchor>{linkText}</Anchor>
-            </Link>
-          );
-        })}
+        {navbarGrayMatter.data.navbar_section.navLinks.map(
+          ({ linkText, url }) => {
+            return (
+              <Link key={linkText} href={url} passHref>
+                <Anchor>{linkText}</Anchor>
+              </Link>
+            );
+          }
+        )}
         <Link href="/donate" passHref>
           <Button
             as="a"

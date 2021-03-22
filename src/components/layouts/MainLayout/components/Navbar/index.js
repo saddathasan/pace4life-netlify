@@ -9,7 +9,7 @@ export default function Navbar({ navbarGrayMatter }) {
 
   const toggle = () => setIsOpen(!isOpen);
 
-  console.log(`navbarGrayMatter`, navbarGrayMatter);
+  console.log(`navbarGrayMatter, working??`, navbarGrayMatter);
 
   return (
     <Box as="nav" bgColor="gray.50">
@@ -21,11 +21,11 @@ export default function Navbar({ navbarGrayMatter }) {
           w="100%"
           py={6}
         >
-          <Link href={navbarGrayMatter.data.logo.url} passHref>
+          <Link href={navbarGrayMatter.data.navbar_section.logo.url} passHref>
             <Anchor fontWeight="bold" fontSize="xl">
               <img
                 width="140"
-                src={navbarGrayMatter.data.logo.imageLocation}
+                src={navbarGrayMatter.data.navbar_section.logo.imageLocation}
                 alt="Pace4Life Logo"
               />
             </Anchor>
