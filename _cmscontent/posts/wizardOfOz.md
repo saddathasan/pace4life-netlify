@@ -3,6 +3,7 @@ title: "Wizard of Oz"
 author: "L. Frank Baum"
 preview: "Now this same morning the Wicked Witch came to the door of her castle and looked out with her one eye that could see far off. She saw all her wolves lying dead, and the strangers still traveling through her country. This made her angrier than before, and she blew her silver whistle twice."
 slug: "wizardOfOz"
+created_at: "February 17, 2020"
 ---
 
 # The Wizard of Oz
