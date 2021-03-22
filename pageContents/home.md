@@ -1,4 +1,9 @@
 ---
+page_name: "Home"
+slug: "home"
+---
+
+---
 heroSection:
   bannerImageLocation: "/images/banner/Hero.png"
   headings:
