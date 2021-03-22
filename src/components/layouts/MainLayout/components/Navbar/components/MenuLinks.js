@@ -37,13 +37,15 @@ export default function MenuLinks({ isOpen, toggle, navbarGrayMatter }) {
         direction={["column", , "row"]}
         pt={[4, 4, 0, 0]}
       >
-        {navbarGrayMatter.data.navLinks.map(({ linkText, url }) => {
-          return (
-            <Link key={linkText} href={url} passHref>
-              <Anchor onClick={toggle}>{linkText}</Anchor>
-            </Link>
-          );
-        })}
+        {navbarGrayMatter.data.navbar_section.navLinks.map(
+          ({ linkText, url }) => {
+            return (
+              <Link key={linkText} href={url} passHref>
+                <Anchor onClick={toggle}>{linkText}</Anchor>
+              </Link>
+            );
+          }
+        )}
         <Link href="/donate" passHref>
           <Button
             as="a"

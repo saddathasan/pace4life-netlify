@@ -13,21 +13,30 @@ import Head from "next/head";
 import Link from "next/link";
 import matter from "gray-matter";
 
-import navbarContent from "../../../../layoutContents/navbar.md";
-import footerContent from "../../../../layoutContents/footer.md";
+// import navbarContent from "../../../../layoutContents/navbar.md";
+// import footerContent from "../../../../layoutContents/footer.md";
+
+import homeContent from "../../../../pageContents/home.md";
 import Navbar from "./components/Navbar";
 
 function constructGrayMatter() {
-  const navbarGrayMatter = matter(navbarContent);
-  const footerGrayMatter = matter(footerContent);
+  const homeGraymatter = matter(homeContent);
 
-  return {
-    navbarGrayMatter,
-    footerGrayMatter,
-  };
+  return homeGraymatter;
 }
 
-const { navbarGrayMatter, footerGrayMatter } = constructGrayMatter();
+// function constructGrayMatter() {
+//   const navbarGrayMatter = matter(navbarContent);
+//   const footerGrayMatter = matter(footerContent);
+
+//   return {
+//     navbarGrayMatter,
+//     footerGrayMatter,
+//   };
+// }
+
+// const { navbarGrayMatter, footerGrayMatter } = constructGrayMatter();
+const homeGraymatter = constructGrayMatter();
 
 export default function MainLayout({ children }) {
   return (
@@ -40,7 +49,7 @@ export default function MainLayout({ children }) {
         />
       </Head>
       <Flex direction="column" minH="100vh">
-        <Navbar navbarGrayMatter={navbarGrayMatter} />
+        <Navbar navbarGrayMatter={homeGraymatter} />
         <Box as="main" flexGrow="1">
           {children}
         </Box>
@@ -61,19 +70,21 @@ function Footer() {
           justifyContent={[, "space-between"]}
         >
           <Heading as="small" fontSize="sm">
-            {footerGrayMatter.data.copyRight}
+            {homeGraymatter.data.footer_section.copyRight}
           </Heading>
 
           <HStack spacing="8">
-            {footerGrayMatter.data.footerLinks.map(({ imageLocation, url }) => {
-              return (
-                <Link key={imageLocation} href={url} passHref>
-                  <Anchor target="_blank">
-                    <Image width="26px" src={imageLocation} />
-                  </Anchor>
-                </Link>
-              );
-            })}
+            {homeGraymatter.data.footer_section.footerLinks.map(
+              ({ imageLocation, url }) => {
+                return (
+                  <Link key={imageLocation} href={url} passHref>
+                    <Anchor target="_blank">
+                      <Image width="26px" src={imageLocation} />
+                    </Anchor>
+                  </Link>
+                );
+              }
+            )}
           </HStack>
         </Stack>
       </Container>
