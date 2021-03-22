@@ -27,7 +27,7 @@ export default function Blog({ markdownBody, frontmatter }) {
         <title>{frontmatter.title}</title>
       </Head>
 
-      <Container maxW="6xl" mb="12">
+      <Container maxW="6xl" mt="8" mb="12">
         <div>
           {/* <ReactMarkdown source={markdownBody} /> */}
           <MarkdownContent>{markdownBody}</MarkdownContent>
@@ -57,7 +57,7 @@ export default function Blog({ markdownBody, frontmatter }) {
 }
 
 export async function getStaticProps({ params }) {
-  const content = await import(`../../_cmscontent/posts/${params.slug}.md`);
+  const content = await import(`../../pageContents/${params.slug}.md`);
   // const config = await import(`../../siteconfig.json`);
   const data = matter(content.default);
 
@@ -73,7 +73,7 @@ export async function getStaticProps({ params }) {
 // Resource
 // https://getstarted.sh/bulletproof-next/creating-a-markdown-blog/2
 export async function getStaticPaths() {
-  const markdownFiles = await fsPromises.readdir("_cmscontent/posts"); // ["defensive.md","async.md"]
+  const markdownFiles = await fsPromises.readdir("pageContents"); // ["defensive.md","async.md"]
 
   const paths = markdownFiles.map((filename) => {
     const slug = filename.replace(/.md$/, "");
