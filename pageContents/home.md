@@ -17,7 +17,7 @@ navbar_section:
     ]
 
 footer_section:
-  copyRight: "© pace4life 2021"
+  copyRight: "© Pace4Life 2021"
   footerLinks:
     [
       {

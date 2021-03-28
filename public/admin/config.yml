@@ -25,17 +25,31 @@ collections:
       - {label: "Slug", name: "slug", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
 
-  # - name: homePage
-  #   label: "HomePage"
-  #   folder: "homePage"
-  #   create: true
-  #   fileds: 
-  #     - {label: "Page Name", name: "page_name", widget: "string"}
-  #     - {label: "Slug", name: "slug", widget: "string"}
-  #     - {label: "BannerImageLocation", name: "bannerImageLocation", widget: "markdown"}
-  #     - {label: "Headings", name: "headings", widget: "string"}
-  #     - {label: "HeadText", name: "headText", widget: "markdown"}
-  #     - {label: "SecondaryHead", name: "secondaryHead", widget: "string"}
-  #     - {label: "SecondaryText", name: "secondaryText", widget: "markdown"}
-  #     - {label: "primaryButtonText", name:"primaryButtonName", widget: "string"}
-  #     - {label: "secondaryButtonText", name:"secondaryButtonName", widget: "string"}
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "About Page"
+        name: "about"
+        file: "site/content/about.yml"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Intro, name: intro, widget: markdown}
+          - label: Team
+            name: team
+            widget: list
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Position, name: position, widget: string}
+              - {label: Photo, name: photo, widget: image}
+      - label: "Locations Page"
+        name: "locations"
+        file: "site/content/locations.yml"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Intro, name: intro, widget: markdown}
+          - label: Locations
+            name: locations
+            widget: list
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Address, name: address, widget: string}
