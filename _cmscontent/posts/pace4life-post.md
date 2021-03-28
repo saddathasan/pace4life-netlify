@@ -1,5 +1,6 @@
 ---
 title: "Pace4Life - Post "
+slug: pace4life
 ---
 ## Hello world
 
