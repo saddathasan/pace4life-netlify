@@ -17,7 +17,7 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: pageContents
-    label: "blogs"
+    label: "articles"
     folder: "pageContents"
     create: true
     fields:
@@ -37,4 +37,5 @@ collections:
       - {label: "HeadText", name: "headText", widget: "markdown"}
       - {label: "SecondaryHead", name: "secondaryHead", widget: "string"}
       - {label: "SecondaryText", name: "secondaryText", widget: "markdown"}
-      - {label: "primaryButtonText", name: }
+      - {label: "primaryButtonText", name:"primaryButtonName", widget: "string"}
+      - {label: "secondaryButtonText", name:"secondaryButtonName", widget: "string"}
