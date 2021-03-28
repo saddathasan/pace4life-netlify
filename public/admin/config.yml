@@ -25,17 +25,17 @@ collections:
       - {label: "Slug", name: "slug", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
 
-  - name: homePage
-    label: "HomePage"
-    folder: "homePage"
-    create: true
-    fileds: 
-      - {label: "Page Name", name: "page_name", widget: "string"}
-      - {label: "Slug", name: "slug", widget: "string"}
-      - {label: "BannerImageLocation", name: "bannerImageLocation", widget: "string"}
-      - {label: "Headings", name: "headings", widget: "string"}
-      - {label: "HeadText", name: "headText", widget: "markdown"}
-      - {label: "SecondaryHead", name: "secondaryHead", widget: "string"}
-      - {label: "SecondaryText", name: "secondaryText", widget: "markdown"}
-      - {label: "primaryButtonText", name:"primaryButtonName", widget: "string"}
-      - {label: "secondaryButtonText", name:"secondaryButtonName", widget: "string"}
+  # - name: homePage
+  #   label: "HomePage"
+  #   folder: "homePage"
+  #   create: true
+  #   fileds: 
+  #     - {label: "Page Name", name: "page_name", widget: "string"}
+  #     - {label: "Slug", name: "slug", widget: "string"}
+  #     - {label: "BannerImageLocation", name: "bannerImageLocation", widget: "string"}
+  #     - {label: "Headings", name: "headings", widget: "string"}
+  #     - {label: "HeadText", name: "headText", widget: "markdown"}
+  #     - {label: "SecondaryHead", name: "secondaryHead", widget: "string"}
+  #     - {label: "SecondaryText", name: "secondaryText", widget: "markdown"}
+  #     - {label: "primaryButtonText", name:"primaryButtonName", widget: "string"}
+  #     - {label: "secondaryButtonText", name:"secondaryButtonName", widget: "string"}
