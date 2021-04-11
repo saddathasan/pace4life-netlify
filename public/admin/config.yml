@@ -53,3 +53,8 @@ collections:
             fields:
               - {label: Name, name: name, widget: string}
               - {label: Address, name: address, widget: string}
+      - label: "Home Page"
+        name: "home"
+        file: "pageContents/home.md"
+        fields:
+          - { label: 'Navbar config', name: 'navbar_section', widget: 'markdown' }
