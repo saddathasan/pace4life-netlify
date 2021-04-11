@@ -57,13 +57,13 @@ collections:
         name: "home"
         file: "pageContents/home.md"
         fields:
-          - { label: 'Navbar config', name: 'navbar_section', widget: 'string' }
-          - { label: 'Footer config', name: 'footer_section', widget: 'string' }
-          - { label: 'Hero config', name: 'heroSection', widget: 'string' }
-          - { label: 'Secondary section config', name: 'secondarySection', widget: 'string' }
-          - { label: 'Youtube section config', name: 'youtubeSection', widget: 'string' }
-          - { label: 'How it works : config', name: 'how_it_works_section', widget: 'string' }
-          - { label: 'Published In : config', name: 'publishedIn', widget: 'string' }
-          - { label: 'Featured In : config', name: 'featuredIn', widget: 'string' }
-          - { label: 'Subscribe section config', name: 'subscribe_section', widget: 'string' }
-          - { label: 'Blog section config', name: 'blog_section', widget: 'string' }
+          - { label: 'Navbar config', name: 'navbar_section', widget: 'text' }
+          - { label: 'Footer config', name: 'footer_section', widget: 'text' }
+          - { label: 'Hero config', name: 'heroSection', widget: 'text' }
+          - { label: 'Secondary section config', name: 'secondarySection', widget: 'text' }
+          - { label: 'Youtube section config', name: 'youtubeSection', widget: 'text' }
+          - { label: 'How it works : config', name: 'how_it_works_section', widget: 'text' }
+          - { label: 'Published In : config', name: 'publishedIn', widget: 'text' }
+          - { label: 'Featured In : config', name: 'featuredIn', widget: 'text' }
+          - { label: 'Subscribe section config', name: 'subscribe_section', widget: 'text' }
+          - { label: 'Blog section config', name: 'blog_section', widget: 'text' }
