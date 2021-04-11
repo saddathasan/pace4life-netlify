@@ -57,4 +57,13 @@ collections:
         name: "home"
         file: "pageContents/home.md"
         fields:
-          - { label: 'Navbar config', name: 'navbar_section', widget: 'markdown' }
+          - { label: 'Navbar config', name: 'navbar_section', widget: 'string' }
+          - { label: 'Footer config', name: 'footer_section', widget: 'string' }
+          - { label: 'Hero config', name: 'heroSection', widget: 'string' }
+          - { label: 'Secondary section config', name: 'secondarySection', widget: 'string' }
+          - { label: 'Youtube section config', name: 'youtubeSection', widget: 'string' }
+          - { label: 'How it works : config', name: 'how_it_works_section', widget: 'string' }
+          - { label: 'Published In : config', name: 'publishedIn', widget: 'string' }
+          - { label: 'Featured In : config', name: 'featuredIn', widget: 'string' }
+          - { label: 'Subscribe section config', name: 'subscribe_section', widget: 'string' }
+          - { label: 'Blog section config', name: 'blog_section', widget: 'string' }
