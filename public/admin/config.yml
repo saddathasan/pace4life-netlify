@@ -55,6 +55,6 @@ collections:
               - {label: Address, name: address, widget: string}
       - label: "Home Page"
         name: "home"
-        file: "site/content/home.yml"
+        file: "pageContents/home.md"
         fields:
           - { label: 'Navbar config', name: 'navbar_section', widget: 'markdown' }
