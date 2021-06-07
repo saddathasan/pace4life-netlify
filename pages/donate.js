@@ -34,7 +34,7 @@ export default function Donate() {
         <Heading>Donate</Heading>
         <p>
           If you are willing to donate pace maker, please select your respective
-          category.
+          category, and fill out the forms. 
         </p>
 
         <ButtonGroup spacing="8">
