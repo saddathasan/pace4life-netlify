@@ -10,7 +10,12 @@ export default function About() {
       </Head>
 
       <Container maxW="6xl">
-        <Heading>Contact</Heading>
+        <Heading>Contact Us </Heading>
+      </Container>
+
+      <Container maxW="4x1">
+        <h3>Pace4Life</h3>
+        email: lavan@pace4life.org Tel:
       </Container>
     </>
   );
