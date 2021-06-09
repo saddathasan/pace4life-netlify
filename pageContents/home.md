@@ -1,10 +1,29 @@
 ---
-navbar_section: 'Map { "logo": Map { "imageLocation":
-  "/images/logo-pace4life.png", "url": "/" }, "navLinks": List [ Map {
-  "linkText": "about", "url": "/about" }, Map { "linkText": "history", "url":
-  "/history" }, Map { "linkText": "research", "url": "/research" }, Map {
-  "linkText": "blog", "url": "/blog" }, Map { "linkText": "contact", "url":
-  "/contact" }, Map { "linkText": "test", "url": "/test" } ] }'
+# navbar_section: 'Map { "logo": Map { "imageLocation":
+#   "/images/logo-pace4life.png", "url": "/" }, "navLinks": List [ Map {
+#   "linkText": "about", "url": "/about" }, Map { "linkText": "history", "url":
+#   "/history" }, Map { "linkText": "research", "url": "/research" }, Map {
+#   "linkText": "blog", "url": "/blog" }, Map { "linkText": "contact", "url":
+#   "/contact" }, Map { "linkText": "test", "url": "/test" } ] }'
+
+
+navbar_section:
+  logo:
+    imageLocation: "/images/logo-pace4life.png"
+    url: "/"
+  navLinks:
+  - linkText: about
+    url: "/about"
+  - linkText: history
+    url: "/history"
+  - linkText: research
+    url: "/research"
+  - linkText: blog
+    url: "/blog"
+  - linkText: contact
+    url: "/contact"
+
+
 footer_section:
   copyRight: © Pace4Life 2021
   footerLinks:
@@ -18,6 +37,7 @@ footer_section:
       url: https://twitter.com/ukpace4life
     - imageLocation: /images/footer/youtube.png
       url: https://www.youtube.com/channel/UCg-XiTP8-aG0RMMUM-zyHdw
+
 heroSection:
   bannerImageLocation: /images/banner/Hero.png
   headings:
@@ -25,6 +45,8 @@ heroSection:
   texts:
     - Every year up to 2 million people die in the developing world because they
       don't have enough money for a lifesaving pacemaker operation.
+
+
 secondarySection:
   content:
     headerText: At pace4life, we help people to donate pacemakers
@@ -34,6 +56,8 @@ secondarySection:
     primary_button_text: learn more
     secondary_button_text: apply
   bannerImageLocation: /images/published-in/second-banner.png
+
+
 youtubeSection:
   links:
     - https://www.youtube.com/embed/PlyAOAcgfBw
@@ -42,9 +66,13 @@ youtubeSection:
     - https://www.youtube.com/embed//pMp1eHq_kFM
     - https://www.youtube.com/embed/7OCM-GDZiSc
     - https://www.youtube.com/embed/Bgu9xp3sfYk
+
+
 how_it_works_section:
   header_text: How it works
   diagram_image_location: /images/how-it-works/flow-diagram.png
+
+
 blog_section:
   header_text: Latest from the blog
   card_image_location: /images/blog/blog-card-bg.png
@@ -66,6 +94,7 @@ publishedIn:
       imageLocation: /images/published-in/logo-saif.jpeg
     - url: https://www.smarthealth-care.com/
       imageLocation: /images/published-in/logo-smarthealthcare.svg
+
 featuredIn:
   headerText: As Featured In
   images:
@@ -81,6 +110,7 @@ featuredIn:
     - imageLocation: /images/featured-in/logo-el-mecurio.png
     - imageLocation: /images/featured-in/logo-imperial-college.svg
     - imageLocation: /images/featured-in/logo-smartmonkeytv.png
+
 subscribe_section:
   header_text: Subscribe to our newsletter
   button_text: learn more
